@@ -1,0 +1,9 @@
+deployment:
+  nginxWebappDeploy:
+    replicas: 2
+    image: devanshchoksi/website:v1.0
+
+service:
+  nginxWebappSvc:
+    port: 80
+    type: NodePort

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx-webapp-deploy
+  name: nginx-webapp-deploy
+spec:
+  replicas: {{ .Values.deployment.nginxWebappDeploy.replicas }}
+  selector:
+    matchLabels:
+      app: nginx-webapp-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx-webapp-deploy
+    spec:
+      containers:
+      - image: {{ .Values.deployment.nginxWebappDeploy.image }}
+        name: website
+        resources: {}
+status: {}
